@@ -15,7 +15,9 @@ switch ($route) {
     case "inscription":
         $inscription=new Inscription();
         $inscription->inscription();
+        break;
     case "connexion":
         $connexion= new Connexion();
         $connexion->connexion();
+        break;
 }
