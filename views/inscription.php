@@ -70,7 +70,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <title>Inscription</title>
 </head>
 <body>
-<h1>Inscription</h1>
 <?php require_once("_partials/header.php") ?>
 <div class="container justify-content-center">
     <h1 class="text-center mt-5">Inscription</h1>

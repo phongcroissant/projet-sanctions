@@ -1,6 +1,7 @@
 <?php
 
 use App\UserStory\Accueil;
+use App\UserStory\Connexion;
 use App\UserStory\Inscription;
 
 require_once __DIR__ . "/../vendor/autoload.php";
@@ -14,4 +15,7 @@ switch ($route) {
     case "inscription":
         $inscription=new Inscription();
         $inscription->inscription();
+    case "connexion":
+        $connexion= new Connexion();
+        $connexion->connexion();
 }
