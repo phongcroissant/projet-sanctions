@@ -3,7 +3,7 @@
             <h5>En savoir plus...</h5>
             <ul class="nav flex-column">
                 <li class="nav-item mb-1"><a href="#" class="nav-link p-0 text-muted">Accueil</a></li>
-                <li class="nav-item mb-1"><a href="#" class="nav-link p-0 text-muted">Mentions légales</a></li>
+                <li class="nav-item mb-1"><a href="index.php?route=mentionslegales" class="nav-link p-0 text-muted">Mentions légales</a></li>
                 <li class="nav-item mb-1"><a href="#" class="nav-link p-0 text-muted">Offres d'emploi</a></li>
                 <li class="nav-item mb-1"><a href="#" class="nav-link p-0 text-muted">FAQ</a></li>
                 <li class="nav-item mb-1"><a href="#" class="nav-link p-0 text-muted">A propos de nous</a></li>

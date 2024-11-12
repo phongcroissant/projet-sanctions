@@ -9,7 +9,7 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarColor01">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Accueil
+                    <a class="nav-link active" href="index.php?route=accueil">Accueil
 
                     </a>
                 </li>

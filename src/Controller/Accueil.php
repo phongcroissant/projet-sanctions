@@ -1,6 +1,6 @@
 <?php
 
-namespace App\UserStory;
+namespace App\Controller;
 
 class Accueil
 {

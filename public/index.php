@@ -1,7 +1,9 @@
 <?php
 
-use App\UserStory\Accueil;
-use App\UserStory\Inscription;
+use App\Controller\Accueil;
+use App\Controller\ConnexionController;
+use App\Controller\InscriptionController;
+use App\Controller\MentionsLegales;
 
 require_once __DIR__ . "/../vendor/autoload.php";
 
@@ -12,6 +14,15 @@ switch ($route) {
         $accueil->accueil();
         break;
     case "inscription":
-        $inscription=new Inscription();
+        $inscription=new InscriptionController();
         $inscription->inscription();
+        break;
+    case "connexion":
+        $connexion=new ConnexionController();
+        $connexion->connexion();
+        break;
+    case"mentionslegales":
+        $mentionslegales=new MentionsLegales();
+        $mentionslegales->mentionsLegales();
+        break;
 }
