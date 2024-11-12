@@ -1,9 +1,8 @@
 <?php
 
+use App\Controller\ConnexionController;
 use App\Controller\InscriptionController;
-use App\UserStory\Accueil;
-use App\UserStory\Connexion;
-use App\UserStory\Inscription;
+use App\Controller\Accueil;
 
 require_once __DIR__ . "/../vendor/autoload.php";
 
@@ -18,7 +17,7 @@ switch ($route) {
         $inscription->inscription();
         break;
     case "connexion":
-        $connexion= new \App\Controller\ConnexionController();
+        $connexion= new ConnexionController();
         $connexion->connexion();
         break;
 }
