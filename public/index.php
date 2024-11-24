@@ -20,4 +20,7 @@ switch ($route) {
         $connexion= new ConnexionController();
         $connexion->connexion();
         break;
+    case "mentionslegales":
+        $mentions=new \App\Controller\MentionsLegales();
+        $mentions->mentionsLegales();
 }
