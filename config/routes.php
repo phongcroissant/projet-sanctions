@@ -2,6 +2,6 @@
 return [
     '/' => ['Accueil', 'index'],
     '/sanctions' => ['SanctionsController', 'index'],
-    '/sanctions/inscription' => ['SanctionsController', 'inscription'],
-    '/legal' => ['HomeController', 'legal']
+    '/inscription' => ['SanctionsController', 'inscription'],
+    '/legal' => ['Accueil', 'legal']
 ];
