@@ -9,9 +9,6 @@ Désolé, la page que vous recherchez n'existe pas ou a été déplacée.
             <a href="/" class="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition-colors duration-200">
                 Retour à l'accueil
 </a>
-            <a href="/todos" class="text-blue-500 hover:text-blue-600">
-Voir mes todos
-</a>
         </div>
     </div>
 </div>

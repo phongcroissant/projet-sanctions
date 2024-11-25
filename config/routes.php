@@ -1,7 +1,7 @@
 <?php
 return [
-    '/' => ['Accueil', 'index'],
+    '/' => ['AccueilController', 'index'],
     '/sanctions' => ['SanctionsController', 'index'],
     '/inscription' => ['SanctionsController', 'inscription'],
-    '/legal' => ['Accueil', 'legal']
+    '/legal' => ['AccueilController', 'legal']
 ];
