@@ -87,7 +87,7 @@
         <button type="submit" class="btn btn-primary">Valider</button>
     </form>
 
-    <a href="index.php?route=connexion" class="btn btn-link mt-3">Déjà inscrit ? Connectez-vous</a>
+    <a href="/connexion" class="btn btn-link mt-3">Déjà inscrit ? Connectez-vous</a>
 </div>
 </body>
 </html>
