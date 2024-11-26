@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use Doctrine\ORM\Query\Expr\Base;
 
-class Accueil extends AbstractController
+class AccueilController extends AbstractController
 {
     public function index(): void
     {

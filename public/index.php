@@ -18,7 +18,6 @@ if (!isset($routes[$uri])) {
 // Récupération du contrôleur et de l'action
 [$controllerName, $action] = $routes[$uri];
 $controllerClass = "App\\Controller\\{$controllerName}";
-
 try {
     // Instanciation du contrôleur et appel de l'action
     $controller = new $controllerClass();
