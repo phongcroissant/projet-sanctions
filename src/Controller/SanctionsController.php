@@ -37,6 +37,7 @@ class SanctionsController extends AbstractController
                     // Tenter de créer un compte
                     $user = new CreateAccount($entityManager);
                     $user->execute($nom,$prenom, $email, $password, $confirmPassword);
+                    $this->redirect('/connexion');
                 } catch (\Exception $e) {
                     $erreurs="";
                     $erreurs = $e->getMessage();
@@ -44,5 +45,8 @@ class SanctionsController extends AbstractController
 
         }
         $this->render('Sanctions/inscription');
+    }
+    public function connexion(): void {
+        $this->render('Sanctions/connexion');
     }
 }
