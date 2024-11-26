@@ -66,7 +66,7 @@
             <?php if (isset($erreurs["password"])): ?>
                 <div id="emailHelp" class="form-text text-danger"><?= $erreurs["password"] ?></div>
             <?php else: ?>
-                <div id="emailHelp" class="form-text text-light">Votre mot de passe doit contenir entre 8 et 14 caratères, doit
+                <div id="emailHelp" class="form-text text-light">Votre mot de passe doit contenir au moins 8 caratères, doit
                     posséder au moins 1 majuscule, 1 minuscule et 1 chiffre
                 </div>
             <?php endif; ?>
