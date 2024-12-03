@@ -2,7 +2,7 @@
 
 namespace App\UserStory;
 
-use App\Entity\Utilisateur;
+use App\Entity\User;
 use Doctrine\ORM\EntityManager;
 
 class ConnectAccount
@@ -18,22 +18,21 @@ class ConnectAccount
         $this->entityManager = $entityManager;
     }
 
-    public function execute(string $mail,string $mdp)
+    public function execute(string $mail,string $password)
     {
-        session_start();
-        $repository = $this->entityManager->getRepository(\App\Entity\Utilisateur::class);
-        if ($mail==null || $mdp==null){
+        $repository = $this->entityManager->getRepository(User::class);
+        if ($mail==null || $password==null){
             throw new \Exception("Veuillez renseigner les champs obligatoires");
         }
         if (!filter_var($mail, FILTER_VALIDATE_EMAIL)){
             throw new \Exception("L'adresse mail saisie n'est pas au bon format");
         }
-        if ($repository->findOneBy(['mail'=>"$mail"])==null || !password_verify($mdp,$repository->findOneBy(['mail'=>"$mail"])->getMotDePasse())){
+        if ($repository->findOneBy(['email'=>"$mail"])==null || !password_verify($password,$repository->findOneBy(['email'=>"$mail"])->getPassword())){
             throw new \Exception("L'identifiant ou le mot de passe saisi est incorrect");
         }
         $_SESSION["utilisateur"]=[
             "mail" => $mail,
-            "pseudo" => $repository->findOneBy(["mail"=>$mail])->getPseudo()
+            "prenom" => $repository->findOneBy(["email"=>$mail])->getPrenom()
         ];
     }
 }

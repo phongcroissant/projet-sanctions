@@ -19,6 +19,9 @@
     <?php endif; ?>
 </p>
 <form action="" method="post" class=" mx-auto w-50 p-5" novalidate>
+    <?php if (isset($erreurs)): ?>
+        <p class="form-text text-danger"><?= $erreurs ?></p>
+    <?php endif; ?>
     <div class="mb-3">
         <label for="Email" class="form-label">Email *</label>
         <input type="email"
