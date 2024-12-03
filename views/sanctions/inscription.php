@@ -10,49 +10,43 @@
     <title>Inscription</title>
 </head>
 <body>
-<div class="container mt-5">
-    <h1>Inscription</h1>
+<div class=" container mt-5 ">
+    <h1 class="text-center">Inscription</h1>
 
-    <form action="" method="POST" class="mt-4">
+    <form action="/inscription" method="POST" class="mx-auto mt-4 w-50">
         <?php if (isset($erreurs)): ?>
             <p class="form-text text-danger"><?= $erreurs ?></p>
         <?php endif; ?>
         <div class="mb-3">
             <label for="nom" class="form-label">Nom *</label>
-            <input type="nom" class="form-control <?= (isset($erreurs["nom"])) ? "border border-2 border-danger" : "" ?>"
+            <input type="text" class="form-control"
                    name="nom"
                    id="nom"
                    placeholder="Neret"
                    value=<?=(!empty($erreurs)) ? $_POST["nom"] : "" ?>
                    >
-            <?php if (isset($erreurs["nom"])): ?>
-                <p class="form-text text-danger"><?= $erreurs["nom"] ?></p>
-            <?php endif; ?>
         </div>
         <div class="mb-3">
             <label for="prenom" class="form-label">Prénom *</label>
-            <input type="prenom" class="form-control <?= (isset($erreurs["prenom"])) ? "border border-2 border-danger" : "" ?>"
+            <input type="text" class="form-control "
                    name="prenom"
                    id="prenom"
                    placeholder="Antoine"
-                   value=<?=(!empty($erreurs)) ? $_POST["prenom"] : "" ?>>
-            <?php if (isset($erreurs["prenom"])): ?>
-                <p class="form-text text-danger"><?= $erreurs["prenom"] ?></p>
-            <?php endif; ?>
+                   value=<?=(!empty($erreurs)) ? $_POST["prenom"] : "" ?>
+            >
+
         </div>
 
         <div class="mb-3">
             <label for="Email" class="form-label">Email *</label>
             <input type="email"
-                   class="form-control <?= (isset($erreurs["email"])) ? "border border-2 border-danger" : "" ?>"
+                   class="form-control"
                    name="email"
                    id="Email"
                    placeholder="AntoineLaTaupe@gmail.com"
                    aria-describedby="emailHelp"
-                   value=<?=(!empty($erreurs)) ? $_POST["email"] : "" ?>>
-            <?php if (isset($erreurs["email"])): ?>
-                <p class="form-text text-danger"><?= $erreurs["email"] ?></p>
-            <?php endif; ?>
+                   value=<?=(!empty($erreurs)) ? $_POST["email"] : "" ?>
+            >
             <div id="emailHelp" class="form-text text-light">Nous ne divulgurons jamais votre adresse email</div>
         </div>
 

@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\UserStory\ConnectAccount;
 use App\UserStory\CreateAccount;
 
 class SanctionsController extends AbstractController
@@ -44,9 +45,27 @@ class SanctionsController extends AbstractController
                 }
 
         }
-        $this->render('Sanctions/inscription');
+        $this->render('Sanctions/inscription', ['erreurs' => $erreurs ?? null,]);
     }
     public function connexion(): void {
+        if (isset($_SESSION['mail'])){
+            header("Location: /index.php");
+            exit();
+        }else{
+            if ($_SERVER["REQUEST_METHOD"] === "POST") {
+                $erreurs = "";
+                try {
+                    $user= new ConnectAccount();
+                    $user->execute($_POST["mail"],$_POST["mdp"]);
+                }catch(\Exception $e){
+                    $erreurs = $e->getMessage();
+                }
+                if ($erreurs==""){
+                    header("Location: /index.php");
+                    exit();
+                }
+            }
+        }
         $this->render('Sanctions/connexion');
     }
 }

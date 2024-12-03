@@ -42,7 +42,7 @@
     <?= $content ?>
 </main>
 
-<footer class="fixed-bottom shadow mt-4">
+<footer class=" shadow mt-4">
     <div class="container py-4">
         <div class="d-flex justify-content-between align-items-center text-sm text-muted">
             <div>&copy; <?= date('Y') ?> Lycée Gaudper. Tous droits réservés.</div>
