@@ -1,4 +1,6 @@
-
+<?php
+session_start();
+?>
 <body>
 <div class="container">
     <h3 class="mt-5">Édition du site</h3>

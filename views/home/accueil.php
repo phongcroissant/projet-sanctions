@@ -1,4 +1,6 @@
-
+<?php
+session_start();
+?>
 <body>
 <h1 class="text-center mt-5"> Bienvenue sur le site des sanctions du lycée Gaudper</h1>
 <p class="text-center mt-5">Ce site a pour but de gérer les sanctions des élèves.</p>
