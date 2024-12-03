@@ -1,15 +1,5 @@
 
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="/assets/css/styles.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/darkly/bootstrap.min.css">
-    <title>Inscription</title>
-</head>
+
 <body>
 <div class=" container mt-5 ">
     <h1 class="text-center">Inscription</h1>
@@ -18,15 +8,6 @@
         <?php if (isset($erreurs)): ?>
             <p class="form-text text-danger"><?= $erreurs ?></p>
         <?php endif; ?>
-        <div class="mb-3">
-            <label for="nom" class="form-label">Nom *</label>
-            <input type="text" class="form-control"
-                   name="nom"
-                   id="nom"
-                   placeholder="Neret"
-                   value=<?=(!empty($erreurs)) ? $_POST["nom"] : "" ?>
-                   >
-        </div>
         <div class="mb-3">
             <label for="prenom" class="form-label">Prénom *</label>
             <input type="text" class="form-control "
@@ -37,7 +18,15 @@
             >
 
         </div>
-
+        <div class="mb-3">
+            <label for="nom" class="form-label">Nom *</label>
+            <input type="text" class="form-control"
+                   name="nom"
+                   id="nom"
+                   placeholder="Neret"
+                   value=<?=(!empty($erreurs)) ? $_POST["nom"] : "" ?>
+                   >
+        </div>
         <div class="mb-3">
             <label for="Email" class="form-label">Email *</label>
             <input type="email"
@@ -85,4 +74,3 @@
     <a href="/connexion" class="text-white btn btn-link mt-3">Déjà inscrit ? Connectez-vous</a>
 </div>
 </body>
-</html>
