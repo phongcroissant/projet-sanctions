@@ -33,15 +33,15 @@ class SanctionsController extends AbstractController
             $password =$_POST['password'];
             $confirmPassword =$_POST['confirmpassword'];
 
-                try {
-                    // Tenter de créer un compte
-                    $user = new CreateAccount($this->entityManager);
-                    $user->execute($nom,$prenom, $email, $password, $confirmPassword);
-                    $this->redirect('/connexion');
-                } catch (\Exception $e) {
-                    $erreurs="";
-                    $erreurs = $e->getMessage();
-                }
+            try {
+                // Tenter de créer un compte
+                $user = new CreateAccount($this->entityManager);
+                $user->execute($nom,$prenom, $email, $password, $confirmPassword);
+                $this->redirect('/connexion');
+            } catch (\Exception $e) {
+                $erreurs="";
+                $erreurs = $e->getMessage();
+            }
 
         }
         $this->render('Sanctions/inscription', ['erreurs' => $erreurs ?? null,]);

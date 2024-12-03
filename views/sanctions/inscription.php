@@ -25,7 +25,7 @@
                    id="nom"
                    placeholder="Neret"
                    value=<?=(!empty($erreurs)) ? $_POST["nom"] : "" ?>
-                   >
+            >
         </div>
         <div class="mb-3">
             <label for="Email" class="form-label">Email *</label>

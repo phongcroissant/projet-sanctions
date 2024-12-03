@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -34,15 +37,15 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarColor01">
             <ul class="navbar-nav">
                 <?php if (!isset($_SESSION["utilisateur"])): ?>
-                <li class="nav-item">
-                    <a class="nav-link active" href="/">Accueil</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/connexion">Connexion</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/inscription">Inscription</a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/connexion">Connexion</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/inscription">Inscription</a>
+                    </li>
                 <?php else: ?>
                     <li class="nav-item">
                         <a class="nav-link active" href="/">Accueil</a>
