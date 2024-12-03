@@ -4,13 +4,16 @@ namespace App\Controller;
 
 use App\UserStory\ConnectAccount;
 use App\UserStory\CreateAccount;
+use Doctrine\ORM\EntityManager;
 
 class SanctionsController extends AbstractController
 {
     private array $sanctions = [];
-    public function __construct()
+    private EntityManager $entityManager;
+    public function __construct(EntityManager $entityManager)
     {
         session_start();
+        $this->entityManager=$entityManager;
     }
     public function index(): void
     {
@@ -23,7 +26,6 @@ class SanctionsController extends AbstractController
         if (isset($_SESSION['utilisateur'])) {
             $this->redirect('/');
         }
-        $entityManager=require_once __DIR__."/../../config/bootstrap.php";
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $nom = $_POST['nom'];
             $prenom = $_POST['prenom'];
@@ -33,7 +35,7 @@ class SanctionsController extends AbstractController
 
                 try {
                     // Tenter de créer un compte
-                    $user = new CreateAccount($entityManager);
+                    $user = new CreateAccount($this->entityManager);
                     $user->execute($nom,$prenom, $email, $password, $confirmPassword);
                     $this->redirect('/connexion');
                 } catch (\Exception $e) {
@@ -48,7 +50,6 @@ class SanctionsController extends AbstractController
         if (isset($_SESSION['utilisateur'])) {
             $this->redirect('/');
         }
-        $entityManager=require_once __DIR__."/../../config/bootstrap.php";
         if (isset($_SESSION['mail'])){
             $this->redirect('/');;
             exit();
@@ -56,7 +57,7 @@ class SanctionsController extends AbstractController
             if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $erreurs = "";
                 try {
-                    $user= new ConnectAccount($entityManager);
+                    $user= new ConnectAccount($this->entityManager);
                     $user->execute($_POST["email"],$_POST["password"]);
                 }catch(\Exception $e){
                     $erreurs = $e->getMessage();

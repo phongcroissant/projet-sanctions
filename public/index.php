@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ . '/../vendor/autoload.php';
+$entityManager= require_once __DIR__ . '/../config/bootstrap.php';
 
 // Récupération des routes
 $routes = require_once __DIR__ . '/../config/routes.php';
@@ -20,7 +21,7 @@ if (!isset($routes[$uri])) {
 $controllerClass = "App\\Controller\\{$controllerName}";
 try {
     // Instanciation du contrôleur et appel de l'action
-    $controller = new $controllerClass();
+    $controller = new $controllerClass($entityManager);
     $controller->$action();
 } catch (\Exception $e) {
     error_log($e->getMessage());
