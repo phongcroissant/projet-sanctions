@@ -18,7 +18,7 @@ class CreateAccount
     {
         // Vérifier que des données sont présentes
         if (empty($nom)||empty($prenom) || empty($email) || empty($password) || empty($confirmPassword)) {
-            throw new \Exception("Veuillez remplir le champs.");
+            throw new \Exception("Veuillez remplir les champs obligatoires.");
         }
 
         // Vérifier si l'email est valide

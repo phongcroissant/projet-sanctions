@@ -3,14 +3,10 @@
 <div class="container justify-content-center">
     <h1 class="text-center mt-5">Connexion</h1>
 </div>
-<p class="text-center bg bg-danger w-25 mx-auto justify-content-center">
-    <?php if (isset($erreurs["identifiant"])): ?>
-        <?= $erreurs["identifiant"] ?>
-    <?php endif; ?>
-</p>
+
 <form action="" method="post" class=" mx-auto w-50 p-5" novalidate>
     <?php if (isset($erreurs)): ?>
-        <p class="form-text text-danger"><?= $erreurs ?></p>
+        <p class="text-center form-text alert alert-danger"><?= $erreurs ?></p>
     <?php endif; ?>
     <div class="mb-3">
         <label for="Email" class="form-label">Email *</label>

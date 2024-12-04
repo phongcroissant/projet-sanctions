@@ -6,7 +6,7 @@
 
     <form action="/inscription" method="POST" class="mx-auto mt-4 w-50">
         <?php if (isset($erreurs)): ?>
-            <p class="form-text text-danger"><?= $erreurs ?></p>
+            <p class="text-center form-text alert alert-danger"><?= $erreurs ?></p>
         <?php endif; ?>
         <div class="mb-3">
             <label for="prenom" class="form-label">Prénom *</label>

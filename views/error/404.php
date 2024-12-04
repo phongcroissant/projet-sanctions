@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <div class="min-h-[400px] flex items-center justify-center">
     <div class="text-center">
         <div class="text-6xl font-bold text-gray-300 mb-4">404</div>

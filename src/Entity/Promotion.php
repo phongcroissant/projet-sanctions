@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Entity;
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity]
@@ -8,18 +9,32 @@ use Doctrine\ORM\Mapping as ORM;
 class Promotion
 {
     #[ORM\Id]
-    #[ORM\Column(name:'id_user', type: 'integer')]
-    #[ORM\GeneratedValue]
-    protected int $id;
+    #[ORM\Column(name: 'libelle', type: 'string', length: 50)]
+    protected string $libelle;
 
-    #[ORM\Column(name: 'nom', type: 'string', length: 50)]
-    protected string $nom;
-    #[ORM\Column(name: 'prenom', type: 'string', length: 50)]
-    protected string $prenom;
+    #[ORM\Id]
+    #[ORM\Column(name: 'annee', type: 'integer')]
+    protected int $annee;
 
-    #[ORM\Column(name: 'email_user', type: 'string', length: 100, unique: true)]
-    protected string $email;
+    public function getLibelle(): string
+    {
+        return $this->libelle;
+    }
 
-    #[ORM\Column(name: 'password_user', type: 'string')]
-    protected string $password;
+    public function setLibelle(string $libelle): void
+    {
+        $this->libelle = $libelle;
+    }
+
+    public function getAnnee(): int
+    {
+        return $this->annee;
+    }
+
+    public function setAnnee(int $annee): void
+    {
+        $this->annee = $annee;
+    }
+
 }
+
