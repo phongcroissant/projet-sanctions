@@ -6,7 +6,7 @@ use App\UserStory\ConnectAccount;
 use App\UserStory\CreateAccount;
 use Doctrine\ORM\EntityManager;
 
-class SanctionsController extends AbstractController
+class AuthentificationController extends AbstractController
 {
     private array $sanctions = [];
     private EntityManager $entityManager;

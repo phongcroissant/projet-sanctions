@@ -1,9 +1,9 @@
 <?php
 return [
     '/' => ['AccueilController', 'index'],
-    '/sanctions' => ['SanctionsController', 'index'],
-    '/inscription' => ['SanctionsController', 'inscription'],
-    '/connexion' => ['SanctionsController', 'connexion'],
+    '/sanctions' => ['AuthentificationController', 'index'],
+    '/inscription' => ['AuthentificationController', 'inscription'],
+    '/connexion' => ['AuthentificationController', 'connexion'],
     '/legal' => ['AccueilController', 'legal'],
-    '/deconnexion' => ['SanctionsController', 'deconnexion'],
+    '/deconnexion' => ['AuthentificationController', 'deconnexion'],
 ];

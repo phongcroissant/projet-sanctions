@@ -48,6 +48,9 @@
                         <a class="nav-link active" href="/">Accueil</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link active" href="/">Créer Promotion</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link active" href="/deconnexion">Déconnexion</a>
                     </li>
                 <?php endif; ?>
