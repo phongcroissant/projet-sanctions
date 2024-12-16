@@ -3,6 +3,11 @@
 <div class="container justify-content-center">
     <h1 class="text-center mt-5">Connexion</h1>
 </div>
+<?php if (isset($_SESSION["success"])) :?>
+    <p class="text-center form-text alert alert-success">Votre compte a été créée avec succès</p>
+    <?php
+    $_SESSION["success"] = null;
+endif;?>
 
 <form action="" method="post" class=" mx-auto w-50 p-5" novalidate>
     <?php if (isset($erreurs)): ?>

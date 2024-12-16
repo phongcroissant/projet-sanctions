@@ -31,6 +31,7 @@ class AuthentificationController extends AbstractController
                 // Tenter de créer un compte
                 $user = new CreateAccount($this->entityManager);
                 $user->execute($nom,$prenom, $email, $password, $confirmPassword);
+                $_SESSION['success']="1";
                 $this->redirect('/connexion');
             } catch (\Exception $e) {
                 $erreurs="";

@@ -38,6 +38,15 @@ class CreateAccount
         if($password !== $confirmPassword) {
             throw new \Exception("Les mots de passe ne correspondent pas.");
         }
+        // Mettre en majuscule le nom de famille
+        $nom=strtoupper($nom);
+
+        // Mettre en majuscule la première lettre du prénom
+        if (strpos($prenom,"-")) {
+            $prenom =mb_convert_case($prenom, MB_CASE_TITLE);
+        } elseif (strpos($prenom," ")) {
+            $prenom = ucwords(strtolower($prenom));
+        }
         // Hasher le mot de passe
         $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
