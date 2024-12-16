@@ -23,6 +23,16 @@ class Promotion
         return $this->libelle;
     }
 
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
+
     public function setLibelle(string $libelle): void
     {
         $this->libelle = $libelle;

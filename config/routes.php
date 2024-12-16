@@ -6,4 +6,5 @@ return [
     '/legal' => ['AccueilController', 'legal'],
     '/deconnexion' => ['AuthentificationController', 'deconnexion'],
     '/createPromotion' => ['PromotionController', 'createPromotion'],
+    '/importEleve'=>['EleveController', 'importEleve'],
 ];

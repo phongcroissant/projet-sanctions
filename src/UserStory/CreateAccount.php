@@ -46,6 +46,8 @@ class CreateAccount
             $prenom =mb_convert_case($prenom, MB_CASE_TITLE);
         } elseif (strpos($prenom," ")) {
             $prenom = ucwords(strtolower($prenom));
+        } else {
+            $prenom = ucfirst($prenom);
         }
         // Hasher le mot de passe
         $hashedPassword = password_hash($password, PASSWORD_BCRYPT);

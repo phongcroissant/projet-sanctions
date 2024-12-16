@@ -16,8 +16,7 @@ class Eleve
     #[ORM\Column(name: 'prenom', type: 'string', length: 50)]
     protected string $prenom;
 
-    #[ORM\Column(name:'id_promotion', type: 'integer')]
-    #[ORM\ManyToOne(targetEntity: 'Promotion')]
-    #[ORM\JoinColumn(referencedColumnName: 'id_promotion', nullable: false)]
-    protected int $idPromotion;
+    #[ORM\ManyToOne(targetEntity: Promotion::class)]
+    #[ORM\JoinColumn(name: 'id_promotion',referencedColumnName: 'id_promotion', nullable: false)]
+    protected Promotion $idPromotion;
 }
