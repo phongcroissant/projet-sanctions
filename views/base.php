@@ -58,7 +58,7 @@
         </div>
     </div>
 </nav>
-<p>
+<p class="text-end me-2 mt-2">
     <?=  (isset($_SESSION["utilisateur"])) ? "Vous êtes connecté en tant que ".$_SESSION["utilisateur"]["prenom"] : "" ?>
 </p>
 <main class="content container mx-auto px-4 flex-grow">

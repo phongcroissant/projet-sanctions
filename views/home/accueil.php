@@ -4,7 +4,7 @@ session_start();
 <body>
 
 <?php if (isset($_SESSION["success"])) :?>
-    <p class="text-center form-text alert alert-success">Votre promotion a été crée avec succès</p>
+    <p class="text-center form-text alert alert-success">Votre promotion a été créée avec succès</p>
 <?php
     $_SESSION["success"] = null;
 endif;?>
