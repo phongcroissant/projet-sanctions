@@ -8,24 +8,24 @@
         <p class="text-center form-text alert alert-danger"><?= $erreurs ?></p>
     <?php endif; ?>
     <div>
-        <label for="exampleSelect1" class="form-label mt-4">Example disabled select</label>
-        <select class="form-select" id="exampleDisabledSelect1">
-            <?php
-            $promotions=new ImportFromCSV($this->entityManager);
-            foreach ($promotions->afficherPromotion() as $promotion):
-                echo"<option>".$promotion->getLibelle().' - '.$promotion->getAnnee() ."</option>";
-             endforeach; ?>
+        <label for="promotions" class="form-label mt-4">Promotions : *</label>
+        <select class="form-select" id="promotions">
+            <?php foreach ($promotions->afficherPromotion() as $promotion): ?>
+            <option>
+               <?=$promotion->getLibelle().' - '.$promotion->getAnnee()  ?>
+            </option>
+            <?php endforeach; ?>
         </select>
     </div>
-    <div class="mb-3">
+    <div class="mb-3 mt-3">
         <label for="listeEleve" class="form-label">Liste d'élèves : *</label>
         <input type="file"
                class="form-control"
                name="listeEleve"
                id="listeEleve"
                accept=".csv">
+        <p>Seul les formats .csv sont acceptés</p>
     </div>
-
 
     <button type="submit" class="btn btn-primary">Importer</button>
 </form>

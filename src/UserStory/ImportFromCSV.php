@@ -14,7 +14,12 @@ class ImportFromCSV
     {
         $this->entityManager = $entityManager;
     }
-    public function afficherPromotion() {
+    public function afficherPromotion(): array
+    {
         return $this->entityManager->getRepository(Promotion::class)->findAll();
+    }
+
+    public function execute(string $tableau,int $idPromotion) {
+
     }
 }

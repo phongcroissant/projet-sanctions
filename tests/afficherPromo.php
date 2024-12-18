@@ -9,3 +9,4 @@ print_r($promos);
 foreach ($promos as $promo) {
     echo $promo->getLibelle();
 }
+$id=$entityManager->getRepository(Promotion::class)->findOneBy("");
