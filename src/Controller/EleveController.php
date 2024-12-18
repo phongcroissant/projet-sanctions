@@ -34,7 +34,7 @@ class EleveController extends AbstractController
                 $erreurs=$e->getMessage();
             }
         }
-        $this->render('eleve/importerEleve',['promotions' => $promotions ?? null,]);
+        $this->render('eleve/importerEleve',['promotions' => $promotions ?? null,'erreurs'=>$erreurs ?? null,]);
 
     }
 }
