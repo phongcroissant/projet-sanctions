@@ -7,4 +7,5 @@ return [
     '/deconnexion' => ['AuthentificationController', 'deconnexion'],
     '/createPromotion' => ['PromotionController', 'createPromotion'],
     '/importEleve'=>['EleveController', 'importEleve'],
+    '/createSanction'=>['SanctionController', 'createSanction'],
 ];

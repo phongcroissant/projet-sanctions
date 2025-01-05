@@ -54,6 +54,9 @@
                         <a class="nav-link active" href="/importEleve">Importer Elèves</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link active" href="/createSanction">Créer Sanction</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link active" href="/deconnexion">Déconnexion</a>
                     </li>
                 <?php endif; ?>
