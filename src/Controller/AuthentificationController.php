@@ -12,6 +12,8 @@ class AuthentificationController extends AbstractController
     public function __construct(EntityManager $entityManager)
     {
         session_start();
+        // Vérifiez si l'utilisateur est connecté
+
         $this->entityManager=$entityManager;
     }
 
@@ -44,10 +46,6 @@ class AuthentificationController extends AbstractController
     public function connexion(): void {
         if (isset($_SESSION['utilisateur'])) {
             $this->redirect('/');
-        }
-        if (isset($_SESSION['mail'])){
-            $this->redirect('/');;
-            exit();
         }else{
             if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $erreurs = "";
@@ -68,7 +66,7 @@ class AuthentificationController extends AbstractController
     public function deconnexion(): void {
         if (isset($_SESSION['utilisateur'])) {
             session_destroy();
-            session_start();
+            session_unset();
         }
         $this->redirect('/');
     }
