@@ -31,6 +31,7 @@ class ConnectAccount
             throw new \Exception("L'identifiant ou le mot de passe saisi est incorrect");
         }
         $_SESSION["utilisateur"]=[
+            "id"=>$repository->findOneBy(['email'=>"$mail"])->getId(),
             "mail" => $mail,
             "prenom" => $repository->findOneBy(["email"=>$mail])->getPrenom()
         ];
