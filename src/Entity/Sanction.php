@@ -40,9 +40,11 @@ class Sanction
     private \DateTime $dateIncident;
 
 
-     #[ORM\Column(type:"string", length:255)]
+    #[ORM\ManyToOne(targetEntity: User::class)]
+    #[ORM\JoinColumn(name: 'id_user',referencedColumnName: 'id_user', nullable: false)]
 
-    private string $creePar;
+    private ?User $creePar;
+
 
     public function getId(): int
     {
@@ -104,15 +106,20 @@ class Sanction
         $this->dateIncident = $dateIncident;
     }
 
-    public function getCreePar(): string
+    public function getCreePar(): ?User
     {
         return $this->creePar;
     }
 
-    public function setCreePar(string $creePar): void
+    public function setCreePar(?User $creePar): void
     {
         $this->creePar = $creePar;
     }
+
+
+
+
+
 
 
 }

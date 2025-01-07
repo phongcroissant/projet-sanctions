@@ -33,7 +33,8 @@ class ConnectAccount
         $_SESSION["utilisateur"]=[
             "id"=>$repository->findOneBy(['email'=>"$mail"])->getId(),
             "mail" => $mail,
-            "prenom" => $repository->findOneBy(["email"=>$mail])->getPrenom()
+            "id" => $repository->findOneBy(["email"=>$mail])->getId(),
+            "prenom" => $repository->findOneBy(["email"=>$mail])->getPrenom(),
         ];
     }
 }

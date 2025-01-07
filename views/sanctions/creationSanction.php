@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+
 <h1 class="text-center mt-5">Créer une sanction</h1>
 <form action="" method="post" class="mx-auto w-50 p-5" novalidate>
     <?php if (!empty($erreurs)): ?>
@@ -18,7 +16,7 @@ session_start();
     <?php endif; ?>
 
     <div>
-        <label for="eleve" class="form-label">Élève sanctionné :</label>
+        <label for="eleve" class="form-label">Élève sanctionné : *</label>
         <select name="eleve" id="eleve" class="form-select" required>
             <option value="">-- Sélectionner un élève --</option>
             <?php foreach ($eleves as $eleve): ?>
@@ -28,14 +26,14 @@ session_start();
     </div>
 
     <div class="mt-3">
-        <label for="demandeur" class="form-label">Nom du demandeur :</label>
+        <label for="demandeur" class="form-label">Nom du demandeur : *</label>
         <input type="text" name="demandeur" id="demandeur" class="form-control" required>
     </div>
 
     <div class="mt-3">
-        <label for="motif" class="form-label">Motif :</label>
-        <select name="motif" id="motif" class="form-select">
-            <option value="">-- Choisir un motif (facultatif) --</option>
+        <label for="motif" class="form-label">Motif : *</label>
+        <select name="motif" id="motif" class="form-select" required>
+            <option value="">-- Choisir un motif --</option>
             <?php foreach ($motifs as $motif): ?>
                 <option value="<?= $motif->getId() ?>"><?= $motif->getLibelle() ?></option>
             <?php endforeach; ?>
@@ -43,12 +41,12 @@ session_start();
     </div>
 
     <div class="mt-3">
-        <label for="descriptionMotif" class="form-label">Description du motif :</label>
+        <label for="descriptionMotif" class="form-label">Description du motif : *</label>
         <textarea name="descriptionMotif" id="descriptionMotif" class="form-control"></textarea>
     </div>
 
     <div class="mt-3">
-        <label for="dateIncident" class="form-label">Date de l'incident :</label>
+        <label for="dateIncident" class="form-label">Date de l'incident : *</label>
         <input type="date" name="dateIncident" id="dateIncident" class="form-control" required>
     </div>
 

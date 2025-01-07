@@ -14,6 +14,12 @@ class SanctionController extends AbstractController
 
     public function __construct(EntityManager $entityManager)
     {
+        session_start();
+        // Vérifiez si l'utilisateur est connecté
+        if (!isset($_SESSION['utilisateur'])) {
+            $this->redirect('/connexion');
+            exit;
+        }
         $this->entityManager = $entityManager;
     }
 
@@ -27,11 +33,12 @@ class SanctionController extends AbstractController
             $descriptionMotif = $_POST['descriptionMotif'] ?? null;
             $dateIncident = $_POST['dateIncident'] ?? null;
             $demandeur = $_POST['demandeur'] ?? null;
+            $creePar = $_SESSION['utilisateur']["id"]; // Récupération de l'ID de l'utilisateur courant
 
             try {
                 $sanctionService = new CreateSanction($this->entityManager);
-                $sanctionService->execute($eleveId, $motifId, $descriptionMotif, $dateIncident, $demandeur, 'admin');
-                $_SESSION["success"] = "La sanction a été créée avec succès.";
+                $sanctionService->execute($eleveId, $motifId, $descriptionMotif, $dateIncident, $demandeur, $creePar);
+                $_SESSION["successSanction"] = "La sanction a été créée avec succès.";
                 $this->redirect('/');
             } catch (\Exception $e) {
                 $erreurs[] = $e->getMessage();

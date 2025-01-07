@@ -18,6 +18,11 @@ class EleveController extends AbstractController
     public function __construct(EntityManager $entityManager)
     {
         session_start();
+        // Vérifiez si l'utilisateur est connecté
+        if (!isset($_SESSION['utilisateur'])) {
+            $this->redirect('/connexion');
+            exit;
+        }
         $this->entityManager = $entityManager;
     }
     public function importEleve(): void
