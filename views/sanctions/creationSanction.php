@@ -5,7 +5,7 @@
         <div class="alert alert-danger">
             <ul>
                 <?php foreach ($erreurs as $erreur): ?>
-                    <li><?= htmlspecialchars($erreur) ?></li>
+                    <li><?= $erreur ?></li>
                 <?php endforeach; ?>
             </ul>
         </div>
@@ -16,6 +16,16 @@
     <?php endif; ?>
 
     <div>
+        <label for="promotion" class="form-label">Promotion : *</label>
+        <select name="promotion" id="promotion" class="form-select" required>
+            <option value="">-- Sélectionner une promotion --</option>
+            <?php foreach ($promotions as $promotion): ?>
+                <option value="<?= $promotion->getId() ?>"><?= $promotion->getLibelle()?></option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+
+    <div class='mt-3'>
         <label for="eleve" class="form-label">Élève sanctionné : *</label>
         <select name="eleve" id="eleve" class="form-select" required>
             <option value="">-- Sélectionner un élève --</option>
