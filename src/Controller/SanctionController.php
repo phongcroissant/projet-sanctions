@@ -27,44 +27,54 @@ class SanctionController extends AbstractController
     public function createSanction(): void
     {
         $erreurs = [];
-        $promotionId = $_POST['promotion'] ?? null; // Récupération de l'ID de la promotion sélectionnée
+        $success = null;
 
+        // 1. Récupération de la promotion sélectionnée (en GET pour le filtre ou POST pour la soumission)
+        $promotionId = $_GET['promotion'] ?? $_POST['promotion'] ?? null;
+
+        // 2. Si le formulaire principal est soumis
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['eleve'])) {
             $eleveId = $_POST['eleve'] ?? null;
             $motifId = $_POST['motif'] ?? null;
             $descriptionMotif = $_POST['descriptionMotif'] ?? null;
             $dateIncident = $_POST['dateIncident'] ?? null;
             $demandeur = $_POST['demandeur'] ?? null;
-            $creePar = $_SESSION['utilisateur']["id"];
+            $creePar = $_SESSION['utilisateur']['id'];
 
             try {
                 $sanctionService = new CreateSanction($this->entityManager);
                 $sanctionService->execute($eleveId, $motifId, $descriptionMotif, $dateIncident, $demandeur, $creePar);
-                $_SESSION["successSanction"] = "La sanction a été créée avec succès.";
-                $this->redirect('/');
+                $_SESSION['successSanction'] = "La sanction a été créée avec succès.";
+                $this->redirect('/'); // Redirection vers la page d'accueil ou une autre page
             } catch (\Exception $e) {
                 $erreurs[] = $e->getMessage();
             }
         }
 
-        // Récupération des promotions
+        // 3. Récupération des promotions
         $promotions = $this->entityManager->getRepository(Promotion::class)->findBy([]);
 
-        // Filtrer les élèves par promotion
-        $eleves =
-            $this->entityManager->getRepository(Eleve::class)->findBy([]);
+        // 4. Récupération des élèves, filtrés si une promotion est sélectionnée
+        $eleves = [];
+        if ($promotionId) {
+            $eleves = $this->entityManager->getRepository(Eleve::class)->findBy([
+                'idPromotion' => $promotionId
+            ]);
+        }
 
-        // Récupération des motifs
+        // 5. Récupération des motifs
         $motifs = $this->entityManager->getRepository(Motif::class)->findBy([]);
 
+        // 6. Affichage du formulaire
         $this->render('sanctions/creationSanction', [
             'erreurs' => $erreurs,
             'eleves' => $eleves,
             'motifs' => $motifs,
             'promotions' => $promotions,
-            'promotionId' => $promotionId, // On garde l'ID sélectionné
+            'promotionId' => $promotionId, // Pour garder la sélection
         ]);
     }
+
 
 
 }

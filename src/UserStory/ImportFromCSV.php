@@ -21,6 +21,7 @@ class ImportFromCSV
     public function execute(string $filePath, int $idPromotion): int
     {
         $repositoryPromotion = $this->entityManager->getRepository(Promotion::class);
+        $repositoryEleve = $this->entityManager->getRepository(Eleve::class);
 
         // Validation des entrées
         if (empty($filePath) || empty($idPromotion)) {
@@ -46,6 +47,17 @@ class ImportFromCSV
                 throw new \Exception("Une ligne du fichier est invalide : Nom ou Prénom manquant.");
             }
 
+            // Vérifie si l'élève existe déjà dans la promotion
+            $eleveExistant = $repositoryEleve->findOneBy([
+                'nom' => $etudiant['Nom'],
+                'prenom' => $etudiant['Prénom'],
+                'idPromotion' => $promotion
+            ]);
+
+            if ($eleveExistant) {
+                continue; // Ignore le doublon
+            }
+
             $eleve = new Eleve();
             $eleve->setNom($etudiant['Nom']);
             $eleve->setPrenom($etudiant['Prénom']);
@@ -60,5 +72,6 @@ class ImportFromCSV
 
         return $nbEleves;
     }
+
 
 }

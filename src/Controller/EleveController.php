@@ -41,8 +41,6 @@ class EleveController extends AbstractController
                 $eleve = new ImportFromCSV($this->entityManager);
                 $nbEleves = $eleve->execute($csv, $classe);
 
-                $message = "$nbEleves étudiant(s) ont bien été créés !";
-
             } catch (\Exception $e) {
                 $erreurs = $e->getMessage();
             }
@@ -52,7 +50,7 @@ class EleveController extends AbstractController
 
         $this->render('eleve/importerEleve', [
             'erreurs' => $erreurs,
-            'message' => $message ?? null,
+            'nbEleve' => $nbEleves ?? null,
             'promotions' => $promotions
         ]);
     }

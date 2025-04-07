@@ -3,10 +3,12 @@
 <form action="" enctype="multipart/form-data" method="post" class="mx-auto w-50 p-5" novalidate>
     <!-- Gestion des erreurs -->
     <?php if (isset($erreurs)): ?>
-        <p class="text-center form-text alert alert-danger"><?= htmlspecialchars($erreurs) ?></p>
+        <p class="text-center form-text alert alert-danger"><?= $erreurs ?></p>
     <?php endif; ?>
-    <?php if (isset($message)): ?>
-        <p class="text-center form-text alert alert-success"><?= htmlspecialchars($message) ?></p>
+    <?php if (isset($nbEleve) && $nbEleve > 0) : ?>
+        <p class="text-center form-text alert alert-success"><?= $nbEleve ?> étudiant(s) ont bien été créés !</p>
+    <?php elseif (isset($nbEleve)) : ?>
+        <p class="text-center form-text alert alert-danger">Aucun élève n'a été importé !</p>
     <?php endif; ?>
 
     <!-- Sélection de la promotion -->
@@ -15,8 +17,8 @@
         <select class="form-select" id="promotions" name="promotions" required>
             <option value="">-- Sélectionner une promotion --</option>
             <?php foreach ($promotions as $promotion): ?>
-                <option value="<?= htmlspecialchars($promotion->getId()) ?>">
-                    <?= htmlspecialchars($promotion->getLibelle() . ' - ' . $promotion->getAnnee()) ?>
+                <option value="<?= $promotion->getId() ?>">
+                    <?=$promotion->getLibelle() . ' - ' . $promotion->getAnnee() ?>
                 </option>
             <?php endforeach; ?>
         </select>
